@@ -25,10 +25,10 @@ _TAU_COL, _WATER_VAPOR_COL, _SOLAR_ZENITH_COL = 0, 1, 2
 
 @dataclass
 class AtmosphericMismatchConfig:
-    tau_bias: float = 0.03
-    tau_noise_std: float = 0.01
-    water_vapor_bias: float = 0.1
-    water_vapor_noise_std: float = 0.05
+    tau_bias: float = 0.0
+    tau_noise_std: float = 0.0
+    water_vapor_bias: float = 0.0
+    water_vapor_noise_std: float = 0.0
     solar_zenith_bias: float = 0.0
     solar_zenith_noise_std: float = 0.0
 

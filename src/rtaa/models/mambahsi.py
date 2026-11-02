@@ -20,13 +20,14 @@ trains a single run instead, see that script).
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
 import torch
 from torch import Tensor, nn
 
-MAMBAHSI_REPO_DIR = "/home/jayant/projects/MambaHSI"
+MAMBAHSI_REPO_DIR = os.environ.get("MAMBAHSI_REPO_DIR", "/content/MambaHSI")
 
 
 class UpsampledMambaHSI(nn.Module):
