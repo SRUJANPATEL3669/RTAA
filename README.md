@@ -159,15 +159,16 @@ RTAA/
 │   ├── rtaa_poster_preview.png           # Web-optimized poster preview
 │   ├── rtaa_pipeline_diagram.png         # End-to-end RTAA architecture diagram
 │   └── hyperspectral_cube.png            # HSI data cube schematic
-├── notebooks/                            # Reproducible evaluation notebooks
-│   ├── adversarial_benchmark_colab.ipynb # Google Colab benchmark notebook
-│   └── adversarial_benchmark_kaggle.ipynb# Kaggle GPU benchmark notebook
+├── notebooks/                            # Reproducible evaluation notebook
+│   └── adversarial_benchmark_kaggle.ipynb# Complete Kaggle GPU benchmark notebook
 ├── src/rtaa/                             # Core framework package
 │   ├── attacks/                          # Attack implementations
 │   │   ├── rtaa_attack.py                # Core RTAA Momentum-PGD generator
-│   │   ├── sacnet_attack.py              # Whole-scene FCN attack adapter
+│   │   ├── sacnet_attack.py              # Whole-scene FCN / MambaHSI attack adapter
 │   │   ├── spectralformer_attack.py      # Vision Transformer attack adapter
 │   │   └── baselines.py                  # FGSM, I-FGSM, PGD, SS-FGSM implementations
+│   ├── data/                             # Dataset loading & preprocessing
+│   │   └── hsi_dataset.py                # HSI cube padding, PCA & patch extraction
 │   ├── rtm/                              # Radiative transfer modeling
 │   │   ├── forward_model.py              # Differentiable sensor radiance & inversion
 │   │   ├── mismatch.py                   # Atmospheric compensation mismatch models
@@ -175,15 +176,13 @@ RTAA/
 │   │   └── placeholder_physics.py        # Atmospheric parameter generation
 │   ├── models/                           # HSI classifier backbones
 │   │   ├── hybridsn.py                   # HybridSN 3D-2D CNN
-│   │   ├── sacnet.py                     # SACNet interface
-│   │   ├── s3anet.py                     # S3ANet interface
+│   │   ├── ssftt.py                      # SSFTT Spatial-Spectral Transformer
 │   │   ├── spectralformer.py             # SpectralFormer interface
-│   │   └── mambahsi.py                   # Mamba State-Space Model interface
+│   │   ├── s3anet.py                     # S3ANet interface
+│   │   ├── sacnet.py                     # SACNet interface
+│   │   └── mambahsi.py                   # MambaHSI State-Space Model interface
 │   └── eval/                             # Evaluation & reporting
-│       ├── metrics.py                    # OA, AA, Kappa, SAM, SID, PCR, ASR
 │       └── excel_writer.py               # Formatted benchmark table exporter
-├── generate_notebook.py                  # Automated notebook generation script
-├── setup.py                              # Package installation configuration
 └── README.md                             # Project documentation
 ```
 
